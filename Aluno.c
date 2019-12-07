@@ -6,14 +6,14 @@ typedef struct tipoaluno{//estrutura do Aluno;
 	char nome[30];
 	char serie[15];
 	char matricula[30];
-	struct Aluno *proximo;
+	struct Aluno* proximo;
 }Aluno;
 
 typedef struct tipolista{//estrutura que contem um ponteiro para apontar para o inicio da lista;
-	Aluno *inicio;
+	Aluno* inicio;
 }Lista;
 
-void adicionar(Lista *lista){//inserindo alunos na lista;
+void adicionar(Lista* lista){//inserindo alunos na lista;
 	char n[30];
 	char s[15];
 	char m[30];
@@ -31,7 +31,7 @@ void adicionar(Lista *lista){//inserindo alunos na lista;
 	printf("\n\n");
 }
 
-void imprimir(Lista *lista){
+void imprimir(Lista* lista){
 	int n;
 	printf("Para imprimir todos os alunos da lista digite(1), para imprimir apenas um digite(2):\n");
 	scanf("%d",&n);
@@ -47,7 +47,7 @@ void imprimir(Lista *lista){
 	}
 }
 
-void remover(Lista *lista){
+void remover(Lista* lista){
 	char m[30];
 	printf("Digite o numero da matricula referente ao aluno que deseja remover:\n");
 	fflush(stdin);

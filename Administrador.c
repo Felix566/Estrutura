@@ -7,10 +7,12 @@
 
 #include"ListaAluno.h"
 #include"Aluno.h"
+#include"ListaProfessor.h"
+#include"Professor.h"
 
 void menu(){//interface para o usuario;
 	
-	Lista *lista=cria_lista();
+	Lista* lista=cria_lista();
 	int cont=0;
 	int n;
 	while(cont!=4){
@@ -28,9 +30,54 @@ void menu(){//interface para o usuario;
 		}
 		else{
 			switch(n){
-				case 1:adicionar(lista); break;
-				case 2:imprimir(lista); break;
-				case 3: remover(lista); break;
+				case 1:{
+					int x;
+					printf("Se desejar adicionar alunos digite(1) se desejar adicionar professores(2)\n");
+					scanf("%d",&x);
+					if(x==1){
+						adicionar(lista);
+						system("cls"); 
+						break;
+					}
+					else if(x==2){
+						adicionar_professores(lista);
+						system("cls");
+						break;
+					}
+					else{
+						printf("ERRO\n");
+					}
+					
+				}
+				case 2:{
+					int x;
+					printf("Se desejar imprimir alunos digite(1) se desejar imprimir professores(2)\n");
+					scanf("%d",&x);
+					if(x==1){
+						imprimir(lista);
+						break;
+					}
+					else if(x==2){
+						imprimir_prof(lista);
+						break;
+					}
+					else{
+						printf("ERRO\n");
+					}
+				}
+				case 3:{
+					int x;
+					printf("Se desejar remover alunos digite(1) se desejar remover professores(2)\n");
+					scanf("%d",&x);
+					if(x==1){
+					remover(lista);
+					break;	
+					}
+					else if(x==2){
+						remover_prof(lista);
+						break;
+					}
+				} 
 				defalt: printf("ERRO\n");
 			}
 		}

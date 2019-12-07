@@ -7,21 +7,21 @@ typedef struct tipoaluno{//estrutura do Aluno;
 	char nome[30];
 	char serie[15];
 	char matricula[30];
-	struct Aluno *proximo;
+	struct Aluno* proximo;
 }Aluno;
 
 typedef struct tipolista{//estrutura que contem um ponteiro para apontar para o inicio da lista;
-	Aluno *inicio;
+	Aluno* inicio;
 }Lista;
 
-Lista *cria_lista(){//função para criar a lista;
-	Lista *lista=(Lista*)malloc(sizeof(Lista*));
+Lista* cria_lista(){//função para criar a lista;
+	Lista* lista=(Lista*)malloc(sizeof(Lista*));
 	lista->inicio=NULL;
 	return lista;
 }
 
-void inserir(Lista *lista, char n[30], char s[15], char m[30]){//procedimento para inserir alunos na lista;
-	Aluno *novo=(Aluno*)malloc(sizeof(Aluno));
+void inserir(Lista* lista, char n[30], char s[15], char m[30]){//procedimento para inserir alunos na lista;
+	Aluno* novo=(Aluno*)malloc(sizeof(Aluno));
 	strcpy(novo->nome,n);
 	strcpy(novo->serie,s);
 	strcpy(novo->matricula,m);
@@ -29,7 +29,7 @@ void inserir(Lista *lista, char n[30], char s[15], char m[30]){//procedimento pa
 	lista->inicio=novo;
 }
 
-int estaVazia(Lista *lista){
+int estaVazia(Lista* lista){
 	if(lista->inicio==NULL){
 		return 0;
 	}
@@ -38,13 +38,13 @@ int estaVazia(Lista *lista){
 	}
 }
 
-void imprimir_alunos(Lista *lista){
+void imprimir_alunos(Lista* lista){
 	int x=estaVazia(lista);
 	if(x==0){
 		printf("A lista esta vazia !\n\n");
 	}
 	else{
-		Aluno *aux=lista->inicio;
+		Aluno* aux=lista->inicio;
 		while(aux!=NULL){
 			printf("Nome: %s\n",aux->nome);
 			printf("Serie: %s\n",aux->serie);
@@ -55,13 +55,13 @@ void imprimir_alunos(Lista *lista){
 	
 }
 
-void busca_aluno(Lista *lista, char n[30]){
+void busca_aluno(Lista* lista, char n[30]){
 	int x=estaVazia(lista);
 	if(x==0){
 		printf("A lista esta vazia!\n\n");
 	}
 	else{
-		Aluno *aux=lista->inicio;
+		Aluno* aux=lista->inicio;
 		int cont=0;
 		while(aux!=NULL){
 			int res=strcmp(aux->matricula,n);
@@ -80,9 +80,9 @@ void busca_aluno(Lista *lista, char n[30]){
 	}
 }
 
-void remover_aluno(Lista *lista, char m[30]){
-	Aluno *p=lista->inicio;//ponteiro para percorrer a lista;
-	Aluno *a=NULL;//ponteiro para guardar o anterior;
+void remover_aluno(Lista* lista, char m[30]){
+	Aluno* p=lista->inicio;//ponteiro para percorrer a lista;
+	Aluno* a=NULL;//ponteiro para guardar o anterior;
 	int x;
 	while(p!=NULL && (strcmp(p->matricula,m))!=0){
 		a=p;
@@ -97,16 +97,6 @@ void remover_aluno(Lista *lista, char m[30]){
 	else{
 		a->proximo=p->proximo;
 	}
-	free(p);	
+	free(p);
+	printf("Aluno removido com sucesso!\n");	
 }
-
-
-
-
-
-
-
-
-
-
-

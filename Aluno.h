@@ -1,5 +1,5 @@
-void adicionar(Lista *lista);
+void adicionar(Lista* lista);
 
-void imprimir(Lista *lista);
+void imprimir(Lista* lista);
 
-void remover(Lista *lista);
+void remover(Lista* lista);
